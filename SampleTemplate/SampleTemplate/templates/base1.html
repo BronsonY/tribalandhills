@@ -1,0 +1,274 @@
+{% load cms_tags menu_tags sekizai_tags static  %}
+<!doctype html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style type="text/css">
+.abutton{
+    color:black !important;
+     height:30px;
+      font-size: 10px;
+
+}
+        .selected{
+        border:2px solid #09a109;
+             border-radius: 5px;
+        }
+        	.carousel-inner{
+		max-height: 391px !important;
+             border-radius: 5px;
+	
+	}
+    .col-md-4{
+        padding-left: 0px !important;
+    }
+    .col-md-8{
+        padding-right: 0px !important;
+    }
+	.col-md-4 .alert {
+	
+		max-height: 391px !important;
+		min-height: 370px !important;
+	
+	}
+	
+            .nav > li {
+                padding:5px;
+                padding-right:5px !important;
+            }
+            .nav  {
+                margin:5px;
+            }
+            .waves-light{
+                background-color: white;
+                margin-right: 5px;
+            }
+            .collapse >.nav > li {
+                display: inline;
+                list-style-type: none;
+                padding-right: 20px;
+                 
+            }
+            .collapse >.nav >li > a{
+         
+                 color: white;
+            }
+            .container {
+                width: 940px;
+                margin: 0 auto
+            }
+            .content {
+                float: left;
+                width: 80%;
+            }
+            .sidebar {
+                float: left;
+                width: 20%;
+            }
+        </style>
+        {% render_block "css" %}
+    </head>
+    <body>
+        
+        {% cms_toolbar %}
+        <div style="width:100%; margin: auto;">
+          
+            <nav style="padding:0; ; background-color: #e6e6e6 " class="navbar navbar-expand-lg navbar-light">
+                
+                <div class="container-fluid rightBodyPadding" style="height:40px;padding-bottom: 5px; background-color: #e6e6e6  !important; width:70%; margin: auto;">
+                    
+                    <div>
+                        <h6 class="times" style="padding-top: 10px;">
+                            <font face="sans-serif" size="3" color="#0c1a5a"> 
+                            <SCRIPT LANGUAGE="JavaScript">
+                                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                              var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                              var d = new Date();
+                              var month = d.getMonth()+1;
+                              var day = d.getDate();
+                              var datetime = d.getHours() + ":"  
+                                            + d.getMinutes() + ":" 
+                                            + d.getSeconds();
+                              var output =days[d.getDay()] +',  ' + day + ' ' + monthNames[d.getMonth()] + '-' + d.getFullYear() + '  '+ '<span>'+datetime+'</span>';
+                              document.write(output);
+                            </SCRIPT>
+                            </font>
+                        </h6>
+                    </div>
+                    <div  style="display:flex"class="">
+                        
+                        <ul class="navbar-nav nav-flex-icons">
+                            <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><div aria-label="button  to decrease font size" id="smallerTextLink" class="btn abutton font-sizing waves-light">- A</div></li>
+                            <li tabindex="0" aria-label="button  to set default font size" class="nav-item"><div id="resetFont" class="btn abutton font-sizing waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to increase font size" class="nav-item"><div id="largerTextLink" class="btn abutton font-sizing waves-light">A +</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme"  id="white" class="nav-item;   height:30px; font-size:10px !mportant"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: white !important; color:black !important;   font-size:10px !important; height:30px;" class="btn font-sizing-black waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme"  id="black" class="nav-item;   height:30px;  font-size:10px !mportant"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: black !important; color:white !important; height:30px; font-size:10px;  " class="btn font-sizing-black waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme" id="blue"  class="nav-item"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: rgb(4, 88, 156)!important; color:white !important ;height:30px; font-size:10px;" class="btn font-sizing-black waves-light">A</div></li>
+
+                        </ul>
+                    </div>
+        </div>
+
+              
+            </nav>
+<div class="row" style="width:69%; margin:auto; background-color: #146c6b;">
+    <img  style =" width:30%;    height: 120px;
+    margin-top: 3%;" src="{% static "logo.png" %}"/>
+    <img  style =" width:70%; height:auto" src="{% static "nu-banner.png" %}"/>
+    </div>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #025980;">
+            
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div style="width:70%; margin: auto;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto nav">
+                  
+                      
+                        {% show_menu 0 100 100 100 %}
+                     
+                  </ul>
+                  <form method="POST" action="/search/" class="form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                    <input name="search1" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+            </div>
+              </nav>
+            
+          <div class="body-section" style="width:70%; margin:auto; padding:18px">
+            {% if a %}
+            <div id="search_hide" style="min-height:300px !important;border-radius: 5px !important;"class="searchPopup">
+                <div style="display: flex;"><h3 style="margin-bottom: 0;">Search Result</h1></div>
+                <hr/>
+                {% for i in a %}
+                    <p style="margin-left:20px; color:blue !important" ><a  style="color:blue !important" href="/{{i.path}}">- {{i.title}}</a></p>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% if request.get_full_path == "/search/" %}
+            <div id="search_hide" style="min-height:300px !important; border-radius: 5px !important;" class="searchPopup">
+                <div style="display: flex;"><h3 style="margin-bottom: 0;">Search Result</h1></div>
+                <hr/>
+                <h5 style="margin-left:20px; margin-top:40px;color:red" >Search Not Found ! Please Search only Related Words. Thank You!</h5>
+            </div>
+            {% endif %}
+        {% endif %}
+            {% block content %}{% endblock content %}
+
+        </div>
+
+        </div>
+        <script>
+            $('#white').click(function()
+            {   
+                location.reload();
+            });
+
+            $('#black').click(function()
+            {   
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding").css("background-color","black");
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container").css("border","1px solid white");
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("color","white");
+            
+            });
+
+
+
+            $('#blue').click(function()
+            {   
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding").css("background-color","#003561");
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container").css("border","1px solid white");
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("color","white");
+            
+            });
+
+
+
+
+
+                $(document).ready(function()
+
+
+               
+
+
+
+
+        
+
+    {   
+        $("img,div,p,h4,h3,h2,h5,b,.alert").attr("tabindex",0);
+
+
+
+        $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-family", "Helvetica");
+        $("a,li,p,b,font").css("font-size", "16px"); 
+       // $('a,li,p,b,font').css("font-size","16px");
+        //Reset Font Size   
+        $('#resetFont').click(function()
+            {
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "resetFont")
+                {
+                    textSize = 16;  
+                }      
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement); 
+            });
+        
+        $('#smallerTextLink').click(function()
+            { 
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "largerTextLink")
+                    {
+                        textSize += 2;
+                    }
+                else
+                    {
+                        textSize -= 2;
+                    };  
+                if(8<textSize)
+                    {
+                        $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement);
+                    }
+                return false;
+            });
+    
+        $('#largerTextLink').click(function()
+            {   
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "largerTextLink")
+                    {  
+                        textSize += 2;  
+                    }
+                else
+                    {
+                        textSize -= 2;
+                    };
+    
+                if(textSize<24)
+                    {
+                        $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement);
+                    }
+                return false;
+            });
+    });
+    
+        </script>
+        {% render_block "js" %}
+    </body>
+</html>

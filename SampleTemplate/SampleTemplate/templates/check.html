@@ -1,0 +1,1413 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+<!doctype html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+
+    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/custom-style.css'%}">
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        select:focus,
+        img:focus,
+        input:focus,
+        p:focus,
+        h3:focus,
+        h4:focus,
+        h5:focus,
+        h6:focus,
+        a:focus,
+        div:focus,
+        li:focus,
+        button:focus,
+        table:focus,
+        img:focus {
+            border: 1px solid rgb(51, 255, 0) !important;
+        }
+
+        ul,
+        li {
+            list-style-type: none !important;
+        }
+
+        .custom-tabs li.nav-item:hover {
+            background-color: #6f6d6d;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+        }
+
+        .custom-tabs li.nav-item {
+            padding: 0;
+        }
+
+        .custom-tabs li.nav-item>a {
+            padding: 8px;
+        }
+
+        .custom-tabs li.nav-item>a:hover {
+            color: #ffffff;
+        }
+
+        .custom-tabs li.nav-item>a.nav-link.active {
+            background-color: #6f6d6d;
+            color: #ffffff;
+        }
+
+        .nav li>a {
+            padding: 0px;
+            font-weight: 600;
+        }
+
+        .nav li {
+            padding: 5px 8px;
+        }
+
+        .nav .dropdown-menu li {
+            padding: 5px 8px;
+        }
+
+        .nav li:hover,
+        .nav .dropdown-menu li:hover {
+            background-color: #7c8184;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+        }
+
+        .stretch-card>.card {
+            width: 100%;
+            min-width: 100%
+        }
+
+        .flex {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto
+        }
+
+        @media (max-width:991.98px) {
+            .padding {
+                padding: 1.5rem
+            }
+
+            .owl-carousel .item {
+                margin: 0 2em;
+            }
+        }
+
+        @media (max-width:767.98px) {
+            .padding {
+                padding: 1rem
+            }
+
+            .owl-carousel .item {
+                margin: 0 1.2em;
+            }
+        }
+
+        .padding {
+            padding: 2rem
+        }
+
+        .owl-carousel .item img {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .owl-carousel .item {
+            margin: 0 3em;
+        }
+
+        .rs-partner {
+            margin: 30px 0;
+            background: #57574E;
+            clear: both;
+        }
+
+        .rs-footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 18px 0;
+            margin-top: 35px;
+        }
+
+        .rs-footer .footer-bottom .copyright p {
+            opacity: 0.95;
+            font-size: 15px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .rs-partner .owl-carousel .partner-item,
+        .rs-partner .owl-carousel .partner-item img {
+            height: auto !important;
+        }
+
+        .partner-item,
+        .partner-item img {
+            width: 180px;
+            padding: 0;
+        }
+
+        .popular-help {
+            float: left;
+            margin: 0 0 1px 0;
+            padding: 4px 0;
+            min-width: 57.1112%;
+            background-color: #6d3b10;
+            overflow: hidden;
+            border: none;
+            border-radius: 0;
+        }
+
+        .popular-help a {
+            text-decoration: none;
+            color: #bbdafa;
+            height: 36px !important;
+            line-height: 36px !important;
+        }
+
+        .popular-help a:hover {
+            color: #d4e5f5;
+        }
+
+        .row-no-margin {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .customrow {
+            margin-top: 3px;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            background: #f1f1f1;
+        }
+
+        .customrow p {
+            margin-bottom: 0;
+        }
+
+        .row1-darkblue {
+            width: 50%;
+            background-color: #174f74;
+            color: #fff;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .row1-darkblue p {
+            font-size: 0.9vw !important;
+        }
+
+        .row1-light {
+            width: 48%;
+            background: #f1f1f1;
+            color: #174f74;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .row1-light p {
+            font-size: 0.9vw !important;
+        }
+
+        .holder {
+            background-color: #ffffff;
+            width: 100%;
+            overflow: hidden;
+            padding: 10px;
+            font-family: Helvetica;
+        }
+
+        .holder .mask {
+            position: relative;
+            left: 0px;
+            top: 10px;
+            max-width: 600px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .holder ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .holder ul li {
+            padding: 10px 0px;
+        }
+
+        .holder ul li a {
+            color: #0099ff;
+            transition: all 0.3s ease 0s;
+            text-decoration: none !important;
+            outline: none !important;
+        }
+
+        .logo-area {
+            background-color: #f5f5f5;
+            padding: 15px 0;
+        }
+
+        .testimonial-item {
+            text-align: center;
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+        }
+
+        .testimonial-item .testimonial-img {
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin: 0 auto;
+        }
+
+        .testimonial-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            color: #111;
+        }
+
+        .testimonial-item h4 {
+            font-size: 14px;
+            color: #6f6b6b;
+            margin: 0 0 15px 0;
+        }
+
+
+        .rs-footer {
+            color: #e8e8e8;
+            background: #57574E;
+            padding-top: 2em;
+        }
+
+        .footer-title {
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            color: #ffffff;
+            font-size: 1.1em;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 1px;
+            width: 50px;
+            background-color: #ff3115;
+        }
+
+        .web-name>h2 {
+            font-size: 3vw;
+            font-weight: 600;
+            text-align: left;
+            color: rgb(204, 162, 12);
+            font-family: Helvetica;
+        }
+
+        .web-name2>h4 {
+            font-weight: 600;
+            text-align: left;
+            color: rgb(204, 162, 12);
+            font-family: Helvetica;
+            font-size: 1.8vw;
+        }
+
+        .nav .dropdown ul {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: calc(100% + 30px);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            padding: 10px 0;
+            background: #57574E;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+            transition: 0.3s;
+        }
+
+        .nav .dropdown:hover>ul {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+        }
+
+        .nav .dropdown li {
+            min-width: 180px;
+            position: relative;
+        }
+
+        .nav .dropdown ul a {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: none;
+            color: #ffffff;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .page-title {
+            position: relative;
+            width: 100%;
+            color: #000;
+            margin-bottom: 10px;
+            border-bottom: solid 2px #174f74;
+        }
+
+        .page-title h2 {
+            color: #000;
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+
+        .sec-title {
+            position: relative;
+            width: 100%;
+            color: #1c6b2d;
+            margin-bottom: 10px;
+            border-bottom: solid 1px #d2d2d2;
+            ;
+        }
+
+        .sec-title h4 {
+            color: #1c6b2d;
+            margin-bottom: 7px;
+        }
+
+        .datemaindiv {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .bluediv {
+            width: 50%;
+            background-color: #174f74;
+            color: #fff;
+        }
+
+        .graydiv {
+            width: 48%;
+            color: #174f74;
+            font-weight: 600;
+        }
+
+        .orangebd {
+            margin: 0;
+            padding: 12px;
+            text-align: center;
+            /* padding-bottom: 10px; */
+            color: #fff;
+            background-color: #174f74;
+            text-transform: uppercase;
+        }
+
+        .latestupdatesbody-container {
+            margin: 0;
+            text-align: left;
+            /* padding-bottom: 10px; */
+            color: #fff;
+        }
+
+        .importantdates-container {}
+
+        .orangebd p {
+            margin: 0 !important;
+            font-weight: 600;
+        }
+
+        .latestupdatesbody-container p {
+            margin: 0 !important;
+            display: block;
+            width: 100%;
+            line-height: 1.2;
+            font-size: 1em;
+            color: #174f74;
+        }
+
+        .customContainer {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .photoContainer {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .imgWrapper {
+            width: 100%;
+            height: auto;
+        }
+
+        .imgWrapper img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .innertxtWrapper {
+            padding: 8px;
+        }
+
+        .nameTile {
+            font-weight: 600;
+            font-size: 0.9em !important;
+        }
+
+        .designation {
+            font-size: 0.8em !important;
+        }
+
+        .logoContainer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .logoWrapper {
+            width: 50%;
+        }
+
+        .card-header.orangebd>h1,
+        .card-header.orangebd>h2,
+        .card-header.orangebd>h3,
+        .card-header.orangebd>h4,
+        .card-header.orangebd>h5,
+        .card-header.orangebd>h6,
+        .card-header.orangebd>p {
+            padding: 0;
+            margin: 0;
+        }
+
+        /*status bar*/
+
+        @media only screen and (max-width: 600px) {
+            .web-name>h2 {
+                font-size: 2em;
+            }
+
+            .web-name2>h4 {
+                font-size: 1em;
+            }
+
+            .logoContainer {
+                flex-direction: column;
+            }
+
+            .phone_bar {
+                display: flex !important;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 35px;
+            }
+
+            .web_bar {
+                display: none !important;
+            }
+
+            .body-section {
+                width: 95% !important;
+            }
+
+            .col-md-4 {
+                padding-right: 0px !important;
+            }
+
+            .col-md-8 {
+                padding-left: 0px !important;
+            }
+
+            .banner {
+                width: 100% !important;
+
+            }
+
+            .logo {
+                height: 35px !important;
+            }
+
+            .web_nv {
+                display: none !important;
+            }
+
+            .carousel-inner {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            .phone_bar {
+                display: none !important;
+            }
+
+            .web_bar {
+                display: block !important;
+            }
+
+            .body-section {
+                width: 90% !important;
+            }
+
+            .panel-footer {
+                display: none;
+            }
+        }
+
+        /*status bar*/
+        /* site nav phone */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 17;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding-left: 8px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            /* display: block; */
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 36px !important;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 600px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        /* site nav phone */
+
+        .panel-footer {
+            box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            background-color: rgb(222 222 222) !important;
+            color: #ff00dd;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 30px;
+            background-color: rgb(139, 139, 139);
+            position: fixed;
+            /* right: 0em; */
+            top: 40%;
+            transform: translate(0, -50%);
+            z-index: 16;
+        }
+
+        .panel-footer1 {
+            box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            background-color: rgb(222 222 222) !important;
+            color: #00a5d3;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 30px;
+            background-color: rgb(139, 139, 139);
+            position: fixed;
+            right: 0em;
+            top: 35%;
+            transform: translate(0, -50%);
+            z-index: 16;
+        }
+
+        .abutton {
+            color: black !important;
+            font-size: 15px;
+
+        }
+
+        .selected {
+            border: 2px solid #09a109;
+            border-radius: 5px;
+        }
+
+        .carousel-inner {
+            max-height: 391px !important;
+            border-radius: 5px;
+
+        }
+
+        .col-md-4 {
+            padding-left: 0px;
+        }
+
+        .col-md-8 {
+            padding-right: 0px;
+        }
+
+        .col-md-4 .alert {
+
+            max-height: 391px !important;
+            min-height: 370px !important;
+
+        }
+
+        .nav>li {
+            /* padding:5px;
+                padding-right:5px !important;
+                margin:3px !important;*/
+        }
+
+        .nav {
+            margin: 5px;
+        }
+
+        .waves-light {
+            background-color: white;
+            margin-right: 5px;
+        }
+
+        .collapse>.nav>li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 8px;
+
+        }
+
+        .collapse>.nav>li>a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            width: 940px;
+            margin: 0 auto
+        }
+
+        .content {
+            float: left;
+            width: 80%;
+        }
+
+        .sidebar {
+            float: left;
+            width: 20%;
+        }
+
+        div.mr-auto>li.active {
+            background-color: #7c8184;
+        }
+
+        /* Style for Marqee */
+        .scroll-left {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            color: orange;
+        }
+
+        .scroll-left p {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+            font-size: 35px;
+            font-weight: 600;
+            /* Starting position */
+            transform: translateX(100%);
+            /* Apply animation to this element */
+            animation: scroll-left 60s linear infinite;
+        }
+
+        .scroll-left p>a {
+            color: red;
+            font-size: 20px !important;
+        }
+
+        /* Move it (define the animation) */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .carousel-inner {
+            max-height: none !important;
+            border-radius: 5px;
+            height: auto;
+        }
+
+        .hr-view {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .more-links {
+            height: 35px;
+            align-items: center;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .more-links p {
+            margin: 10px 0 0 0;
+        }
+
+        .social-icons a>i {
+            font-size: 18px;
+            margin: 5px 0 0 10px;
+        }
+
+        .content1 {
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .gallery1:after {
+            content: '';
+            display: block;
+            height: 2px;
+            margin: .5em 0 1.4em;
+            background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(77, 77, 77, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(77, 77, 77, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .gallery1 img {
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery1 img:hover {
+            cursor: zoom-in;
+        }
+
+        .gallery1 a {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            overflow: hidden;
+            margin: 4px 6px;
+            box-shadow: 0 0 4px -1px #000;
+        }
+
+        .ribbon>img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .sm-hidden {
+                display: none;
+            }
+        }
+    </style>
+    {% render_block "css" %}
+</head>
+
+<body>
+
+    {% cms_toolbar %}
+    <div style="width:100%; margin: auto;">
+
+        <nav style="padding:0; ; background-color: #e6e6e6 " class="web_bar navbar navbar-expand-lg navbar-light">
+
+            <div class="container-fluid rightBodyPadding"
+                style="height:40px;padding-bottom: 5px; background-color: #e6e6e6  !important; width:70%; margin: auto;">
+
+                <div>
+                    <h6 class="times" style="padding-top: 10px;">
+                        <font face="sans-serif" size="3" color="#0c1a5a">
+                            <SCRIPT LANGUAGE="JavaScript">
+                                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                                var d = new Date();
+                                var month = d.getMonth() + 1;
+                                var day = d.getDate();
+                                var datetime = d.getHours() + ":"
+                                    + d.getMinutes() + ":"
+                                    + d.getSeconds();
+                                var output = days[d.getDay()] + ',  ' + day + ' ' + monthNames[d.getMonth()] + '-' + d.getFullYear() + '  ' + '<span>' + datetime + '</span>';
+                                document.write(output);
+                            </SCRIPT>
+                        </font>
+                    </h6>
+                </div>
+                <div style="display:flex" class="">
+
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li tabindex="0" onclick="skipTo()" aria-label="button  to decrease font size" class="nav-item">
+                            <button onclick="skipTo()" aria-label="button  to decrease font size" id="skiptoolbar"
+                                class="btn abutton font-sizing waves-light">Skip Toolbar</button>
+                        </li>
+
+                        <li tabindex="0" aria-label="button  to decrease font size" class="nav-item">
+                            <div aria-label="button  to decrease font size" id="smallerTextLink"
+                                class="btn abutton font-sizing waves-light">- A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set default font size" class="nav-item">
+                            <div id="resetFont" class="btn abutton font-sizing waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to increase font size" class="nav-item">
+                            <div id="largerTextLink" class="btn abutton font-sizing waves-light">A +</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="white1" class="nav-item;">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: white !important; color:black !important;   font-size:15px ;"
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="black1"
+                            class="nav-item;   height:30px;  font-size:10px !mportant">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: black !important; color:white !important; font-size:15px;  "
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="blue1" class="nav-item">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: rgb(4, 88, 156)!important; color:white !important ;font-size:15px;"
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+
+                        <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><button
+                                onclick="screenreader()" style="font-size:15px !important;"
+                                aria-label="button  to decrease font size" id="screenreder"
+                                class="btn abutton font-sizing waves-light">Screen Reader</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </nav>
+        <div style="display:flex;background-color: #e6e6e6  !important" class="phone_bar">
+
+
+            <li style="display:flex;" tabindex="0" aria-label="button  to decrease font size" class="nav-item">
+                <div style="    padding-left: 5px;
+                width: 132px;" aria-label="button  to decrease font size" id=""
+                    class="btn abutton font-sizing waves-light">
+
+                    <SCRIPT LANGUAGE="JavaScript">
+                        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        var d = new Date();
+                        var month = d.getMonth() + 1;
+                        var day = d.getDate();
+                        var datetime = d.getHours() + ":"
+                            + d.getMinutes() + ":"
+                            + d.getSeconds();
+                        var output = days[d.getDay()] + ',  ' + day + ' ' + monthNames[d.getMonth()] + '-' + d.getFullYear();
+                        document.write(output);
+                    </SCRIPT>
+
+                </div>
+            </li>
+
+            <!-- <li style="display:flex;"tabindex="0" aria-label="button  to decrease font size" class="nav-item"><div aria-label="button  to decrease font size" id="smallerTextLink1" class="btn abutton font-sizing waves-light">- A</div></li>
+    <li style="display:flex;"tabindex="0" aria-label="button  to set default font size" class="nav-item"><div id="resetFont1" class="btn abutton font-sizing waves-light">A</div></li>
+    <li style="display:flex;" tabindex="0" aria-label="button  to increase font size" class="nav-item"><div id="largerTextLink1" class="btn abutton font-sizing waves-light">A +</div></li> -->
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="white"
+                class="nav-item;   height:30px; font-size:10px !mportant">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: white !important; color:black !important;   font-size:10px ; height:30px;"
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="black"
+                class="nav-item;   height:30px;  font-size:10px !mportant">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: black !important; color:white !important; height:30px; font-size:10px;  "
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="blue" class="nav-item">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: rgb(4, 88, 156)!important; color:white !important ;height:30px; font-size:10px;"
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+
+            <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><button
+                    onclick="screenreader()" style="font-size:10px !important;"
+                    aria-label="button  to decrease font size" id="screenreder"
+                    class="btn abutton font-sizing waves-light">Screen Reader</button></li>
+
+        </div>
+
+
+        <div class="row row-no-margin" style="background-color: #f5f5f5;">
+            <div style="width: 95%;margin: 0 auto;">
+                <div class="row" style="padding: 15px 0;">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="logoContainer">
+                            <div class="logoWrapper">
+                                <img id="scripted" class="logo" alt="Depart of Planning Logo"
+                                    style="width: 100%; margin-top: 3%;"
+                                    src="{% static 'images/planning_logo.png' %}" />
+                            </div>
+                            <div class="web-name">
+                            </div>
+                        </div>
+                        <div class="web-name2">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <form method="POST" action="/search/" class="form-inline my-2 my-lg-0">
+                            {% csrf_token %}
+                            <input name="search1" class="form-control mr-sm-2" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light web_nv" style="background-color: #57574E;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="width:99%; margin: auto;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav mr-auto nav">
+                        {% show_menu 0 10 10 10 "menu/custom-menu.html" %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="body-section" style="width:100% !important; margin:auto; padding:18px">
+            {% if a %}
+            <div id="search_hide" style="min-height:300px !important;border-radius: 5px !important;"
+                class="searchPopup">
+                <div style="display: flex;">
+                    <h3 style="margin-bottom: 0;">Search Result</h1>
+                </div>
+                <hr />
+                {% for i in a %}
+                <p style="margin-left:20px; color:blue !important"><a style="color:blue !important" href="/{{i.path}}">-
+                        {{i.title}}</a></p>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% if request.get_full_path == "/search/" %}
+            <div id="search_hide" style="min-height:300px !important; border-radius: 5px !important;"
+                class="searchPopup">
+                <div style="display: flex;">
+                    <h3 style="margin-bottom: 0;">Search Result</h1>
+                </div>
+                <hr />
+                <h5 style="margin-left:20px; margin-top:40px;color:red">Search Not Found ! Please Search only Related
+                    Words. Thank You!</h5>
+            </div>
+            {% endif %}
+            {% endif %}
+            <div>
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+
+        <div class="rs-footer">
+            <div class="footer-top">
+
+            </div>
+            <div class="row row-no-margin">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3"></div>
+
+            </div>
+
+            <div class="rs-partner">
+                <!-- TESTIMONIALS -->
+                <section class="testimonials">
+                    <div class="">
+
+
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row container-fluid">
+                                    <div class="col-lg-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="owl-carousel">
+                                                    <div class="item">
+                                                        <a href="https://manipur.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/manipur.jpg' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.digitalindia.gov.in/"
+                                                            data-link-type="external" target="_blank"><img
+                                                                src="{% static 'images/important/digitalIndia.png' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.india.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/india.png' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.gandhi.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/gandhiLogo.bmp' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://manipur.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/manipur.jpg' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.digitalindia.gov.in/"
+                                                            data-link-type="external" target="_blank"><img
+                                                                src="{% static 'images/important/digitalIndia.png' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.india.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/india.png' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="https://www.gandhi.gov.in/" data-link-type="external"
+                                                            target="_blank"><img
+                                                                src="{% static 'images/important/gandhiLogo.bmp' %}"
+                                                                alt="image" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </section>
+                <!-- END OF TESTIMONIALS -->
+
+                <div class="footer-bottom">
+                    <!-- Footer Bottom -->
+                    <div class="">
+                        <div class="pb-3" style="padding: 5px;">
+                            <a href="/sitemap" style=" border: 1px solid white; padding: 5px;color: white;">Sitemap</a>
+                            <a href="/termsandconditons"
+                                style=" border: 1px solid white; padding: 5px;color: white;">Terms & Conditions</a>
+                            <a href="/faq" style=" border: 1px solid white; padding: 5px;color: white;">FAQ</a>
+                            <a href="/help" style=" border: 1px solid white; padding: 5px; color: white;" >Help</a> 
+                            <a href="https://www.twitter.com" target="_blank"
+                                style=" border: 1px solid white; padding: 5px;">
+                                <i class="fa fa-twitter" style="color:white" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank"
+                                style=" border: 1px solid white;padding: 5px;">
+                                <i class="fa fa-facebook" style="color:white" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="">
+                            <div class="copyright">
+                                <p>© 2021 Department of Town Planning, Govt. of Manipur.</p>
+                                <p>Website compliant with WCAG 2.0, updated by <strong><a
+                                            href="https://nielit.gov.in/imphal/" class="text-danger">NIELIT
+                                            IMPHAL</a></strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <script>
+
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+
+            $(document).ready(function () {
+
+                $('div.mr-auto > li > a')
+                    .click(function (e) {
+                        $('div.mr-auto > li > a')
+                            .removeClass('active');
+                        $(this).addClass('active');
+                    });
+            });
+
+            $(document).ready(function () {
+
+                $(".owl-carousel").owlCarousel({
+
+                    autoPlay: 3000,
+                    items: 5,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [979, 3],
+                    center: true,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        600: {
+                            items: 4
+                        }
+                    }
+                });
+            });
+
+            jQuery.fn.liScroll = function (settings) {
+                settings = jQuery.extend({
+                    travelocity: 0.03
+                }, settings);
+                return this.each(function () {
+                    var $strip = jQuery(this);
+                    $strip.addClass("newsticker")
+                    var stripHeight = 1;
+                    $strip.find("li").each(function (i) {
+                        stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
+                    });
+                    var $mask = $strip.wrap("<div class='mask'></div>");
+                    var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");
+                    var containerHeight = $strip.parent().parent().height();    //a.k.a. 'mask' width
+                    $strip.height(stripHeight);
+                    var totalTravel = stripHeight;
+
+                    var defTiming = totalTravel / settings.travelocity; // thanks to Scott Waye
+                    function scrollnews(spazio, tempo) {
+                        $strip.animate({ top: '-=' + spazio }, tempo, "linear", function () { $strip.css("top", containerHeight); scrollnews(totalTravel, defTiming); });
+                    }
+                    scrollnews(totalTravel, defTiming);
+                    $strip.hover(function () {
+                        jQuery(this).stop();
+                    },
+                        function () {
+                            var offset = jQuery(this).offset();
+                            var residualSpace = offset.top + stripHeight;
+                            var residualTime = residualSpace / settings.travelocity;
+                            scrollnews(residualSpace, residualTime);
+                        });
+                });
+            };
+
+            $(function () {
+                $("ul#ticker01").liScroll();
+            });
+
+            function skipTo() {
+                document.getElementById('scripted').focus();
+            }
+            function screenreader() {
+                window.location.href = '/screen-reader';
+            }
+            $('#white,#white1').click(function () {
+                location.reload();
+            });
+
+            $('#black,#black1').click(function () {
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding,.holder,latestupdatesbody-container,.importantdates-container,customrow,.row1-darkblue,.row1-light,.rs-partner,.rs-footer,.popular-help,.orangebd, .card-body, .card-body p").css("background-color", "black");
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container,.orangebd, .card-body, .card-body p").css("border", "1px solid white");
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font,#myTable td,#tbody td,thead, .card-body, .card-body p").css("color", "white");
+            });
+            $('#blue,#blue1').click(function () {
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding,.holder,latestupdatesbody-container,.importantdates-container,customrow,.row1-darkblue,.row1-light,.rs-partner,.rs-footer,.popular-help,.orangebd, .card-body, .card-body p").css("background-color", "#003561");
+                $(".row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container,.orangebd, .card-body, .card-body p").css("border", "1px solid white");
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font,#myTable td,#tbody td,thead, .card-body, .card-body p").css("color", "white");
+            });
+
+            $(document).ready(function () {
+                $("img,div,p,h4,h3,h2,h5,b,.alert").attr("tabindex", 0);
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font,#myTable td,#tbody td,thead").css("font-family", "Helvetica");
+                $("p,b,font,#myTable td").css("font-size", "14px");
+                $("a,li").css("font-size", "14px");
+                // $('a,li,p,b,font').css("font-size","16px");
+                //Reset Font Size
+                $('#resetFont,#resetFont1').click(function () {
+                    var theElement = $("h1,h2,h3,h4,h5,h6,p,b,font,#myTable td,#tbody td,thead").css("font-size");
+                    var textSize = parseFloat(theElement, 14);
+                    var unitOfMeasurement = theElement.slice(-2);
+
+                    var theElement2 = $("a,li").css("font-size");
+                    var textSize2 = parseFloat(theElement, 14);
+                    var unitOfMeasurement2 = theElement2.slice(-2);
+
+                    if ((this).id == "resetFont") {
+                        textSize = 14;
+                        textSize2 = 14;
+                    }
+                    $("h1,h2,h3,h4,h5,h6,p,b,font,#myTable td,#tbody td,thead").css("font-size", textSize + unitOfMeasurement);
+                    $("a,li").css("font-size", textSize2 + unitOfMeasurement2);
+                });
+
+                $('#smallerTextLink,#smallerTextLink1').click(function () {
+                    var theElement = $("h1,h2,h3,h4,h5,h6,p,b,font,#myTable td,#tbody td,thead").css("font-size");
+                    var textSize = parseFloat(theElement, 14);
+                    var unitOfMeasurement = theElement.slice(-2);
+
+                    var theElement2 = $("a,li").css("font-size");
+                    var textSize2 = parseFloat(theElement, 14);
+                    var unitOfMeasurement2 = theElement2.slice(-2);
+
+                    if ((this).id == "largerTextLink") {
+                        textSize += 2;
+                        textSize2 += 2;
+                    }
+                    else {
+                        textSize -= 2;
+                        textSize2 -= 2;
+                    };
+                    if (8 < textSize) {
+                        $("h1,h2,h3,h4,h5,h6,p,b,font,#myTable td,#tbody td,thead").css("font-size", textSize + unitOfMeasurement);
+                        $("a,li").css("font-size", textSize2 + unitOfMeasurement2);
+                    }
+                    return false;
+                });
+
+                $('#largerTextLink,#largerTextLink1').click(function () {
+                    var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font,#myTable td,#tbody td,thead").css("font-size");
+                    var textSize = parseFloat(theElement, 14);
+                    var unitOfMeasurement = theElement.slice(-2);
+
+                    var theElement2 = $("a,li").css("font-size");
+                    var textSize2 = parseFloat(theElement, 14);
+                    var unitOfMeasurement2 = theElement2.slice(-2);
+
+                    if ((this).id == "largerTextLink") {
+                        textSize += 2;
+                        textSize2 += 2;
+                    }
+                    else {
+                        textSize -= 2;
+                        textSize2 -= 2;
+                    };
+
+                    if (textSize < 24) {
+                        $("h1,h2,h3,h4,h5,h6,p,b,font,#myTable td,#tbody td,thead").css("font-size", textSize + unitOfMeasurement);
+                        $("a,li").css("font-size", textSize2 + unitOfMeasurement2);
+                    }
+                    return false;
+                });
+            });
+
+
+            //SIDE NAV
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+
+            function Glance() {
+                window.location.href = '/glance';
+            }
+
+        </script>
+
+        {% render_block "js" %}
+        <div class="panel-footer">
+            <span style="width:69%;border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;font-size:25px;cursor:pointer;color: #025980 !important; border:1px solid #025980"
+                onclick="openNav()">&#9776; </span>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <form method="POST" action="/search/" class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <input style="width:69%;border-top-right-radius: 0px;border-bottom-right-radius: 0px;" name="search1"
+                    class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button style="width:30%;border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            {% show_menu 0 100 100 100 %}
+        </div>
+        {% if c %}
+        <script>
+            alert("Thank You For Contact Us!")
+        </script>
+        {% endif %}
+</body>
+
+</html>

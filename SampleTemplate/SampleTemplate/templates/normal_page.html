@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+<style>
+
+</style>
+</div>
+{% block content %}
+<div class="body-section" style="width:70%; margin:auto; padding:18px;">
+	<div class="row firstrow ">
+		<div class="col-md-12 col-lg-8  ">
+			{% block carausal %}
+			{% placeholder "carausal" %}
+			{% endblock carausal %}
+		</div>
+		<div class="cm col-md-12 col-lg-4">
+			{% block cm_photo %}
+			{% placeholder "cm_photo" %}
+			{% endblock cm_photo %}
+		</div>
+	</div>
+	<div class="row secondrow ">
+                             <div class="col-md-12 col-lg-4">
+			{% block news %}
+			{% placeholder "news" %}
+			{% endblock news %}
+		</div>
+		<div class="col-md-12 col-lg-8  ">
+			{% block Notes %}
+			{% placeholder "Notes" %}
+			{% endblock Notes %}
+		</div>
+		
+	</div>
+	<div>
+		{% block MainContent %}
+		{% placeholder "MainContent" %}
+		{% endblock MainContent %}
+	</div>
+</div>
+<div style="width:100%; background-color: #0098a8;">
+	<div class="row thirdrow " style="width:95%; margin:auto;">
+		<div class="col-md-12 col-lg-5 mb-2 contact">
+			{% block Contact %}
+			{% placeholder "Contact" %}
+			{% endblock Contact %}
+		</div>
+		<div class="col-md-12 col-lg-7 pt-2 map" style="border-left: 2px solid #0098a8;">
+			<iframe class="rounded" width="100%" height="400px" style="border:0" loading="lazy" allowfullscreen
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJx_vnulMmSTcRZr8TUZc4urA&key=AIzaSyB0f9d5QvRKjhjNM4XtOTXJNZdM4XLaIpI"></iframe>
+		</div>
+	</div>
+</div>
+{% placeholder "content" %}
+{% endblock content %}

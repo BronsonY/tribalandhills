@@ -1,0 +1,47 @@
+.customContainer {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+}
+.leftWrapper50 {
+  width: 50%;
+  background-color: aqua;
+}
+.rightWrapper50 {
+  width: 50%;
+  background-color: yellow;
+}
+.photoContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+}
+.orangebd {
+  margin: 2px 0 5px 15px;
+  padding: 10px 0;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #fff;
+  background-color: #ff8800;
+  text-transform: uppercase;
+}
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .logoContainer {
+    flex-direction: column;
+  }
+  .logoContainer {
+    flex-direction: column;
+  }
+}

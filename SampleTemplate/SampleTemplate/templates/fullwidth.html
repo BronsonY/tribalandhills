@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+<style>
+
+</style>
+</div>
+{% block content %}
+<div class="row">
+	<div class="col-md-4">
+		{% block cm_photo %}
+		{% placeholder "cm_photo" %}
+	{% endblock cm_photo %}
+	</div>
+	<div class="col-md-8">
+		{% block carousal %}
+		{% placeholder "carousal" %}
+	{% endblock carousal %}
+	</div>
+	{% placeholder "content" %}
+{% endblock content %}

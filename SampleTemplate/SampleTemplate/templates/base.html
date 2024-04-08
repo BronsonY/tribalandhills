@@ -1,0 +1,796 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>-->
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>{% block title %}Search{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/custom-style.css'%}">
+    <style type="text/css">
+        #mySidenav>.child>ul>.child,
+        .nav>.child>ul>.child {
+            display: none !important;
+        }
+
+        select:focus,
+        img:focus,
+        input:focus,
+        p:focus,
+        h3:focus,
+        h4:focus,
+        h5:focus,
+        h6:focus,
+        a:focus,
+        div:focus,
+        li:focus,
+        button:focus,
+        table:focus,
+        img:focus {
+            border: 1px solid rgb(51, 255, 0) !important;
+        }
+
+        ul,
+        li {
+            list-style-type: none !important;
+        }
+
+        .registration {
+            display: flex;
+            justify-content:flex-end;
+        }
+
+        .news {
+            background-color: white;
+            width: 100%;
+            height: 400px;
+            overflow-y: scroll;
+        }
+
+        ul.dropdown-menu.show {
+            background-color: #0098a8;
+            padding: 0;
+            border-bottom: 1px solid #007582;
+        }
+
+        ul.dropdown-menu.show li {
+            padding: 5px 10px;
+            transition: 500ms;
+        }
+
+        .dropdown-menu.show>li a {
+            color: white;
+        }
+
+        ul.dropdown-menu.show li:hover {
+            background-color: #0f5402;
+            
+        }
+
+        .footer_first_row {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            bottom: 0px !important;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 30%;
+            padding-right: 30%;
+            background-color: #0098a8;
+            color: white;
+            text-align: center;
+        }
+
+        .pright{
+            padding-right:0;
+        }
+
+        .footer {
+            bottom: 0px !important;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #0098a8;
+            color: white;
+            text-align: center;
+            border-top: 1px solid white;
+        }
+
+        .footer_row {
+            width: 70%;
+            margin: auto;
+            padding: 5px !important;
+        }
+
+
+        @media only screen and (max-width: 1065px) {
+            .footer_row a {
+                padding: 0px !important;
+            }
+
+            .registration {
+            justify-content:space-around;
+            }
+
+            #search {
+                display: none;
+            }
+
+            .firstrow {
+                -webkit-box-orient: vertical !important;
+                -webkit-box-direction: reverse !important;
+                -ms-flex-direction: column-reverse !important;
+                flex-direction: column-reverse !important;
+            }
+
+            .phone_bar {
+                display: flex !important;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 35px;
+            }
+
+            .web_bar {
+                display: none !important;
+            }
+
+            .body-section {
+                width: 95% !important;
+            }
+
+
+            .banner {
+                width: 100% !important;
+
+            }
+
+            .logo {
+                height: 35px !important;
+            }
+
+            .web_nv {
+                display: none !important;
+            }
+
+            .carousel-inner {
+                margin-bottom: 10px;
+                height: 95px;
+            }
+
+            .carousel-indicators {
+                top: 86%;
+                width: 46px;
+                left: 82px;
+            }
+        }
+
+        @media only screen and (min-width: 1065px) {
+
+            .nav-flex-icons>li>button,
+            .nav-flex-icons>li>.btn,
+            .nav-flex-icons>.btn {
+                font-size: 13px !important;
+            }
+
+            .carousel-caption {
+                top: 1%;
+                padding-top: 15%;
+            }
+
+            .phone_bar {
+                display: none !important;
+            }
+
+            .web_bar {
+                display: block !important;
+            }
+
+            .body-section {
+                 width: 70% !important; 
+            }
+            
+
+            .panel-footer {
+                display: none;
+            }
+
+        }
+
+        /*status bar*/
+        /* site nav phone */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 17;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding-left: 8px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            /* display: block; */
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 36px !important;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 1065px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        /* site nav phone */
+
+        .panel-footer {
+            box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            background-color: rgb(222 222 222) !important;
+            color: #ff00dd;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 30px;
+            background-color: rgb(139, 139, 139);
+            position: fixed;
+            /* right: 0em; */
+            top: 40%;
+            transform: translate(0, -50%);
+            z-index: 16;
+        }
+
+        .panel-footer1 {
+            box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 8px 10px 30px -3px rgba(0, 0, 0, 0.75);
+            background-color: rgb(222 222 222) !important;
+            color: #00a5d3;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 30px;
+            background-color: rgb(139, 139, 139);
+            position: fixed;
+            right: 0em;
+            top: 35%;
+            transform: translate(0, -50%);
+            z-index: 16;
+        }
+
+        .abutton {
+            color: black !important;
+            height: 30px;
+            font-size: 10px;
+
+        }
+
+        .selected {
+            border: 2px solid #09a109;
+            border-radius: 5px;
+        }
+
+        .carousel-inner {
+            max-height: 250px !important;
+            border-radius: 5px;
+
+        }
+
+        .nav>li {
+            padding: 5px;
+            padding-right: 5px !important;
+            margin: 3px !important;
+        }
+
+        .nav {
+            margin: 5px;
+        }
+
+        .waves-light {
+            background-color: white;
+            margin-right: 5px;
+        }
+
+        .collapse>.nav>li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+
+        }
+
+        .collapse>.nav>li>a {
+
+            color: white;
+        }
+
+        .container {
+            width: 940px;
+            margin: 0 auto
+        }
+
+        .content {
+            float: left;
+            width: 80%;
+        }
+
+        .sidebar {
+            float: left;
+            width: 20%;
+        }
+
+        @media screen and (max-width: 950px){
+
+	     .cm{
+                 display:none;
+              }
+             .contact{
+                 display:none;
+              }
+             .map>iframe {
+                 height:300px;
+             }
+             .pright{
+                 padding-right:10px;
+                 padding-left:10px;
+             }
+         }
+         @media screen and (max-width: 400px){
+	     .registration {
+	         justify-content:flex-start;
+	     }
+	 }
+    </style>
+    {% render_block "css" %}
+</head>
+
+<body>
+
+    {% cms_toolbar %}
+    <div style="width:100%; margin: auto;">
+
+        <nav style="padding:0; ; background-color: #e6e6e6 " class="web_bar navbar navbar-expand-lg navbar-light">
+
+            <div class="container-fluid rightBodyPadding"
+                style="height:40px;padding-bottom: 5px; background-color: #e6e6e6  !important; width:70%; margin: auto;">
+
+                <div>
+                    <h6 class="times" style="padding-top: 10px;">
+                        <font face="sans-serif" size="3" color="#0c1a5a">
+                            <SCRIPT LANGUAGE="JavaScript">
+                                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                                var d = new Date();
+                                var month = d.getMonth() + 1;
+                                var day = d.getDate();
+                                var datetime = d.getHours() + ":"
+                                    + d.getMinutes() + ":"
+                                    + d.getSeconds();
+                                var output = days[d.getDay()] + ',  ' + day + ' ' + monthNames[d.getMonth()] + '-' + d.getFullYear() + '  ' + '<span>' + datetime + '</span>';
+                                document.write(output);
+                            </SCRIPT>
+                        </font>
+                    </h6>
+                </div>
+                <div style="display:flex" class="">
+
+                    <!--                      <ul class="navbar-nav nav-flex-icons">
+                            <li tabindex="0" onclick="skipTo()" aria-label="button  to decrease font size" class="nav-item"><button onclick="skipTo()" aria-label="button  to decrease font size" id="skiptoolbar" class="btn abutton font-sizing waves-light">Skip Toolbar</button></li>
+
+                            <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><div aria-label="button  to decrease font size" id="smallerTextLink" class="btn abutton font-sizing waves-light">- A</div></li>
+                            <li tabindex="0" aria-label="button  to set default font size" class="nav-item"><div id="resetFont" class="btn abutton font-sizing waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to increase font size" class="nav-item"><div id="largerTextLink" class="btn abutton font-sizing waves-light">A +</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme"  id="white1" class="nav-item;   height:30px; font-size:10px !mportant"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: white !important; color:black !important;   font-size:10px ; height:30px;" class="btn font-sizing-black waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme"  id="black1" class="nav-item;   height:30px;  font-size:10px !mportant"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: black !important; color:white !important; height:30px; font-size:10px;  " class="btn font-sizing-black waves-light">A</div></li>
+                            <li tabindex="0" aria-label="button  to set white theme" id="blue1"  class="nav-item"><div id="1" onclick="setBgColor('#FFFFFF','#212529)')" style="background-color: rgb(4, 88, 156)!important; color:white !important ;height:30px; font-size:10px;" class="btn font-sizing-black waves-light">A</div></li>
+                            
+                            <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><button onclick="screenreader()" style="font-size:10px !important;" aria-label="button  to decrease font size" id="screenreder" class="btn abutton font-sizing waves-light">Screen Reader</button></li>
+  </ul>-->
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li tabindex="0" onclick="skipTo()" aria-label="button  to decrease font size" class="nav-item">
+                            <button onclick="skipTo()" aria-label="button  to decrease font size" id="skiptoolbar"
+                                class="btn abutton font-sizing waves-light">Skip Toolbar</button>
+                        </li>
+
+                        <li tabindex="0" aria-label="button  to decrease font size" class="nav-item">
+                            <div aria-label="button  to decrease font size" id="smallerTextLink"
+                                class="btn abutton font-sizing waves-light">- A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set default font size" class="nav-item">
+                            <div id="resetFont" class="btn abutton font-sizing waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to increase font size" class="nav-item">
+                            <div id="largerTextLink" class="btn abutton font-sizing waves-light">A +</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="white1"
+                            class="nav-item;   height:30px; ">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: white !important; color:black !important; height:30px;"
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="black1"
+                            class="nav-item;   height:30px;  ">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: black !important; color:white !important; height:30px;   "
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to set white theme" id="blue1" class="nav-item">
+                            <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                                style="background-color: rgb(4, 88, 156)!important; color:white !important ;height:30px; "
+                                class="btn font-sizing-black waves-light">A</div>
+                        </li>
+                        <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><button
+                                onclick="screenreader()" aria-label="button  to decrease font size" id="screenreder"
+                                class="btn abutton font-sizing waves-light">Screen Reader</button></li>
+                        <li tabindex="0" aria-label="button  to decrease font size" class="nav-item">
+                            <select class="btn abutton font-sizing waves-light" name="Language" id="Language">
+                                <option value="eng">English</option>
+                                <!-- <option value="man">Manipuri</option> -->
+
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </nav>
+        <div style="display:flex;background-color: #e6e6e6  !important" class="phone_bar">
+
+
+            <li style="display:flex;" tabindex="0" aria-label="button  to decrease font size" class="nav-item">
+                <div style="    padding-left: 5px;
+                                width: 132px;" aria-label="button  to decrease font size" id=""
+                    class="btn abutton font-sizing waves-light">
+
+                    <SCRIPT LANGUAGE="JavaScript">
+                        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        var d = new Date();
+                        var month = d.getMonth() + 1;
+                        var day = d.getDate();
+                        var datetime = d.getHours() + ":"
+                            + d.getMinutes() + ":"
+                            + d.getSeconds();
+                        //days[d.getDay()] +',  ' + day + ' ' +
+                        var output = day + '-' + monthNames[d.getMonth()] + '-' + d.getFullYear();
+                        document.write(output);
+                    </SCRIPT>
+
+                </div>
+            </li>
+
+            <!-- <li style="display:flex;"tabindex="0" aria-label="button  to decrease font size" class="nav-item"><div aria-label="button  to decrease font size" id="smallerTextLink1" class="btn abutton font-sizing waves-light">- A</div></li>
+                            <li style="display:flex;"tabindex="0" aria-label="button  to set default font size" class="nav-item"><div id="resetFont1" class="btn abutton font-sizing waves-light">A</div></li>
+                            <li style="display:flex;" tabindex="0" aria-label="button  to increase font size" class="nav-item"><div id="largerTextLink1" class="btn abutton font-sizing waves-light">A +</div></li> -->
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="white"
+                class="nav-item;   height:30px; font-size:10px !mportant">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: white !important; color:black !important;   font-size:10px ; height:30px;"
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="black"
+                class="nav-item;   height:30px;  font-size:10px !mportant">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: black !important; color:white !important; height:30px; font-size:10px;  "
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+            <li style="display:flex;" tabindex="0" aria-label="button  to set white theme" id="blue" class="nav-item">
+                <div id="1" onclick="setBgColor('#FFFFFF','#212529)')"
+                    style="background-color: rgb(4, 88, 156)!important; color:white !important ;height:30px; font-size:10px;"
+                    class="btn font-sizing-black waves-light">A</div>
+            </li>
+
+            <li tabindex="0" aria-label="button  to decrease font size" class="nav-item"><button
+                    onclick="screenreader()" style="font-size:10px !important;"
+                    aria-label="button  to decrease font size" id="screenreder"
+                    class="btn abutton font-sizing waves-light">Screen Reader</button></li>
+
+        </div>
+
+        <div class="row banner" style="width:101%; background-color: #0098a8; border-bottom: 1px solid white;">
+            <div class="col col-sm-12 col-md-6" style="width:100%; text-align: center; padding-left: 8%;">
+                <img id="scripted" class="logo" alt="TAH Official Logo" style="height: 85px; 
+    margin-top: 2%; margin-bottom: 2%;" src="{% static  'images/TAH.png' %}" />
+            </div>
+	    <!---
+            <div class="col col-sm-12 col-md-4 registration">
+                <div>
+                    <div class="login-container d-flex" style="height:100%; align-items:center;">
+                        <a class="pr-1" href="/registration">
+                            <button class="btn btn-outline-light btn-rounded my-2 my-sm-0" type="">Registration</button>
+                        </a>
+                        <a class="pr-1" href="/check-status">
+                            <button class="btn btn-outline-light btn-rounded my-2 my-sm-0" type="">Check Status</button>
+                        </a>
+                        <a class="" href="/login">
+                            <button class="btn btn-outline-light btn-rounded ml-0 my-2 my-sm-0" type="">Official
+                                Login</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+	    -->
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light web_nv" style="background-color: #0098a8;">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="width:70%; margin: auto;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto nav">
+
+
+			    {% show_menu 0 10 10 10 "menu/custom-menu.html" %}
+
+                    </ul>
+                    <div id="search" style="">
+                        <form method="POST" action="/search/" class="form-inline ">
+                            {% csrf_token %}
+                            <input name="search1" class="form-control mr-sm-2" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn bg-success my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div style="position:absolute; right:70px;">
+                {% if user.is_authenticated %}
+                <p style="color: white; font-size: 18px !important; text-align: center;">Hi,
+                    {{request.user.username}}</p>
+                {% else %}
+                <!-- <form method="POST" action="/admin/" class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        </form> -->
+                {% endif %}
+            </div>
+        </nav>
+
+        <div  style="width:100;">
+            {% if a %}
+            <div class="body-section" id="search_hide" style="width:70%; margin:auto; padding:18px; min-height:300px !important;border-radius: 5px !important;"
+                class="searchPopup">
+                <div style="display: flex;">
+                    <h3 style="margin-bottom: 0;">Search Result</h1>
+                </div>
+                <hr />
+                {% for i in a %}
+                <p style="margin-left:20px; color:blue !important"><a style="color:blue !important" href="/{{i.path}}">-
+                        {{i.title}}</a></p>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% if request.get_full_path == "/search/" %}
+            <div id="search_hide" style="min-height:300px !important; border-radius: 5px !important;"
+                class="searchPopup">
+                <div style="display: flex;">
+                    <h3 style="margin-bottom: 0;">Search Result</h1>
+                </div>
+                <hr />
+                <h5 style="margin-left:20px; margin-top:40px;color:red">Search Not Found ! Please Search only Related
+                    Words. Thank You!</h5>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% block content %}{% endblock content %}
+
+        </div>
+
+    </div>
+    <div class="footer_first_row">
+
+
+
+    </div>
+
+    <div class="footer">
+
+        <div class="row footer_row">
+            <div class="" style="width:100%;">
+                <div class="mb-3" style="padding: 10px;">
+                    <a href="/sitemap" style=" border: 1px solid white; padding: 5px;color: white;">Sitemap</a>
+                    <a href="/termsandconditons" style=" border: 1px solid white; padding: 5px;color: white;">Terms &
+                        Conditions</a>
+                    <a href="/faq" style=" border: 1px solid white; padding: 5px;color: white;">FAQ</a>
+                    <!-- <a href="/help" style=" border: 1px solid white; padding: 5px; color: white;" >Help</a> -->
+                    <a href="https://www.twitter.com" target="_blank" style=" border: 1px solid white; padding: 5px;"><i
+                            class="fa fa-twitter" style="color:white" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" style=" border: 1px solid white;padding: 5px;">
+                        <i class="fa fa-facebook" style="color:white" aria-hidden="true"></i></a>
+                </div>
+                <div class="footer_bottom">
+                    <p>©
+                        <SCRIPT LANGUAGE="JavaScript">
+                            var d = new Date();
+
+
+                            var output = d.getFullYear();
+                            document.write(output);
+                        </SCRIPT>
+                        This website is owned by Department of Tribal Affairs and Hills, Government of Manipur.
+                    </p>
+                    <p>Data Provided by Department of Tribal Affairs and Hills.</p>
+                    <h6>Website compliant with WCAG 2.0, Updated by NIELIT Imphal</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function skipTo() {
+
+
+
+            document.getElementById('scripted').focus();
+        }
+        function screenreader() {
+
+
+
+            window.location.href = '/screen-reader';
+        }
+        $('#white,#white1').click(function () {
+            location.reload();
+        });
+
+        $('#black,#black1').click(function () {
+            $(".footer,.footer_first_row,.row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding").css("background-color", "black");
+            $(".footer,.footer_first_row,.row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container").css("border", "1px solid white");
+            $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("color", "white");
+
+        });
+
+
+
+        $('#blue,#blue1').click(function () {
+            $(".footer,.footer_first_row,.row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.nav,.container-fluid,.container,.rightBodyPadding").css("background-color", "#003561");
+            $(".footer,.footer_first_row,.row,.carousel-inner,.body-section,.navbar-light,navbar,.alert,.container-sfluid,.container").css("border", "1px solid white");
+            $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("color", "white");
+
+        });
+
+
+
+
+
+        $(document).ready(function () {
+
+            $("img,div,p,h4,h3,h2,h5,b,.alert").attr("tabindex", 0);
+
+
+
+            $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-family", "Helvetica");
+            $("a,li,p,b,font").css("font-size", "16px");
+            // $('a,li,p,b,font').css("font-size","16px");
+            //Reset Font Size   
+            $('#resetFont,#resetFont1').click(function () {
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "resetFont") {
+                    textSize = 16;
+                }
+                $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement);
+            });
+
+            $('#smallerTextLink,#smallerTextLink1').click(function () {
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "largerTextLink") {
+                    textSize += 2;
+                }
+                else {
+                    textSize -= 2;
+                };
+                if (8 < textSize) {
+                    $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement);
+                }
+                return false;
+            });
+
+            $('#largerTextLink,#largerTextLink1').click(function () {
+                var theElement = $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size");
+                var textSize = parseFloat(theElement, 16);
+                var unitOfMeasurement = theElement.slice(-2);
+                if ((this).id == "largerTextLink") {
+                    textSize += 2;
+                }
+                else {
+                    textSize -= 2;
+                };
+
+                if (textSize < 24) {
+                    $("h1,h2,h3,h4,h5,h6,a,li,p,b,font").css("font-size", textSize + unitOfMeasurement);
+                }
+                return false;
+            });
+
+
+        });
+
+
+        //SIDE NAV
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function Glance() {
+            window.location.href = '/otherlink';
+        }
+
+
+    </script>
+    {% render_block "js" %}
+
+
+
+    <div class="panel-footer">
+        <span
+            style="width:69%;border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;font-size:25px;cursor:pointer;color: #025980 !important; border:1px solid #025980"
+            onclick="openNav()">&#9776; </span>
+    </div>
+    <div class="panel-footer1">
+        <span onclick="Glance()" style="writing-mode: vertical-rl;cursor:pointer;background-color: rgb(209 209 209) !important;
+        color: #1c1c1c;padding-top: 6px;" onclick="openNav()">Related Links </span>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <form method="POST" action="/search/" class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <input style="width:69%;border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;" name="search1" class="form-control mr-sm-2" type="search" placeholder="Search"
+                aria-label="Search">
+            <button style="width:30%;border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+       {% show_menu 0 100 100 100  %}
+    </div>
+
+</body>
+
+</html>
